@@ -66,10 +66,12 @@ class DnsUtils(BotPlugin):
 
 	@botcmd
 	def dig(self, mess, args):
+		"""Call 'dig'"""
 		return self.execute('dig', args.split())
 
 	@botcmd
 	def nslookup(self, mess, args):
+		"""Call 'nslookup'"""
 		args = args.split()
 		if len(args) < 1 or args[0] in ('-', '-interactive'):
 			# Passing no arguments, or with first argument beginning with - or -interactive
@@ -81,5 +83,6 @@ class DnsUtils(BotPlugin):
 
 	@botcmd
 	def host(self, mess, args):
-			return self.execute('host', args.split())
+		"""Call 'host'"""
+		return self.execute('host', args.split())
 
