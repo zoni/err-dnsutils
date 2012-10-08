@@ -9,7 +9,7 @@ You can install err-dnsutils directly from err using:
 
 	!repos install err-dnsutils
 
-	Alternatively, you can also clone this repository into your BOT\_EXTRA\_PLUGIN\_DIR and restart your bot to load the new plugin.
+Alternatively, you can also clone this repository into your BOT\_EXTRA\_PLUGIN\_DIR and restart your bot to load the new plugin.
 
 ### Configuration
 
