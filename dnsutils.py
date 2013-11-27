@@ -59,7 +59,7 @@ class DnsUtils(BotPlugin):
 		Returns: String containing output
 		"""
 		try:
-			return Popen([cmd] + args, stdout=PIPE, stderr=STDOUT).communicate()[0]
+			return Popen([cmd] + args, stdout=PIPE, stderr=STDOUT).communicate()[0].decode('utf-8')
 		except OSError as e:
 			logger.exception(e)
 			return "Failed to run {0}: {1}".format(cmd, e)
