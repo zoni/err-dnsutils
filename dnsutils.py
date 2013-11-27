@@ -47,7 +47,7 @@ class DnsUtils(BotPlugin):
 		for cmd in (['dig'], ['nslookup', 'localhost'], ['host']):
 			try:
 				Popen(cmd, stdout=PIPE, stderr=STDOUT).communicate()[0]
-			except Exception, e:
+			except Exception as e:
 				self.warn_admins("Warning! This plugin uses {0}, but it failed to execute: {1}".format(cmd[0], e))
 
 	def execute(self, cmd, args):
@@ -60,7 +60,7 @@ class DnsUtils(BotPlugin):
 		"""
 		try:
 			return Popen([cmd] + args, stdout=PIPE, stderr=STDOUT).communicate()[0]
-		except OSError, e:
+		except OSError as e:
 			logger.exception(e)
 			return "Failed to run {0}: {1}".format(cmd, e)
 
