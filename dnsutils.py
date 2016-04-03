@@ -38,10 +38,9 @@ class DnsUtils(BotPlugin):
 
 	def activate(self):
 		super(DnsUtils, self).activate()
-		if not 'INSTALL_MESSAGE_VERSION' in self.shelf.keys() or self.shelf['INSTALL_MESSAGE_VERSION'] < INSTALL_MESSAGE_VERSION:
+		if not 'INSTALL_MESSAGE_VERSION' in self.keys() or self['INSTALL_MESSAGE_VERSION'] < INSTALL_MESSAGE_VERSION:
 			self.warn_admins(INSTALL_MESSAGE_TEXT)
-			self.shelf['INSTALL_MESSAGE_VERSION'] = INSTALL_MESSAGE_VERSION
-			self.shelf.sync() # Not strictly needed, but I like being safe
+			self['INSTALL_MESSAGE_VERSION'] = INSTALL_MESSAGE_VERSION
 
 		# A little sanity checking
 		for cmd in (['dig'], ['nslookup', 'localhost'], ['host']):
@@ -85,4 +84,3 @@ class DnsUtils(BotPlugin):
 	def host(self, mess, args):
 		"""Call 'host'"""
 		return self.execute('host', args.split())
-
